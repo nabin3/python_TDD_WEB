@@ -20,4 +20,4 @@
 ```
 * The superlists folder here is intended for stuff that applies to whole project. Like ```settings.py```, this file is used to store global configuration information for the site.
 
-* Very important file is ```manage.py```, it's django's swiss army knife and one thing it can do is run a development server: ```python mange.py runserver``` and in another shell runn ```python functional_test.py``` to run the test.
+* Very important file is ```manage.py```, it's django's swiss army knife and one thing it can do is run a development server: ```python mange.py runserver``` and in another shell run ```python functional_test.py``` to run the test.
