@@ -54,3 +54,23 @@ Can test the UI "really" works  | Test the internals, individual functions or cl
 We open up ```tests.py``` file located in app folder in our case lists. Here we imported ```TestCase``` from ```djando.test```. This TestCase is an augmented version of unittest with some django specific features.
     Where we run functional test explicitly, unittest we define here in ```tests.py``` will automatically run by automated test runner.
 With this command ```python manage.py test```
+
+## Django's MVC, URLs amd view functions:
+Django is structured along a classic Model-View-Controller(MVC) pattern. Well, broadly.
+It definitely does have models, but what Django calls views are really controllers, and the view part is actually provided by the templates,
+
+Irrespective of any of that, as with any web server, Django’s main job is to decide what to do when a user asks for a particular URL on our site.
+Django’s workflow goes something like this:
+
+1. An HTTP request comes in for a particular URL.
+2. Django uses some rules to decide which view function should deal with
+the request (this is referred to as resolving the URL).
+3. The view function processes the request and returns an HTTP response.
+
+## The Umit-Test/Code Cycle:
+1. In the terminal, run the unit tests and see how they fail.
+2. In the editor, make a minimal code change to address the current test failure.
+And repeat!
+The more nervous we are about getting our code right, the smaller and more
+minimal we make each code change—​the idea is to be absolutely sure that each
+bit of code is justified by a test.

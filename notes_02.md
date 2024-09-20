@@ -20,7 +20,7 @@ But these sorts of problems are quite common in testing, and there are some read
 
 * Any method whose name start with ```test_``` is a test method, and will be run by the test runner. We can have more than one test_method per class.
 
-* ```setUp and tearDown``` are special methods, run at start and end of each test_method respectively.
+* ```setUp and tearDown``` are special methods, run at start and end of each test_method respectively. Only exception is if you have an exception inside setUp, then tearDown doesn’t run.
 
 * unittest provides lots of helper functions like assertIn to make
 test assertions, like assertEqual, assertTrue, assertFalse, and so
