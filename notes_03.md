@@ -67,10 +67,32 @@ Django’s workflow goes something like this:
 the request (this is referred to as resolving the URL).
 3. The view function processes the request and returns an HTTP response.
 
-## The Umit-Test/Code Cycle:
+## The Unit-Test/Code Cycle:
 1. In the terminal, run the unit tests and see how they fail.
 2. In the editor, make a minimal code change to address the current test failure.
 And repeat!
 The more nervous we are about getting our code right, the smaller and more
 minimal we make each code change—​the idea is to be absolutely sure that each
 bit of code is justified by a test.
+
+## Django Test Client:
+* We can access the tests client via self.client, which is available on any test that uses django.test.TestCase.It provides methods like .get() which simulate a browser making http requests,and take a URL as their first parameter. We use this instead of manually creating a request object and calling the view function directly
+
+* Django also provides some assertion helpers like assertContains that save us from having to manually extract and decode response content.
+
+## Reading Tracebacks:
+1. The first place you look is usually the error itself. Sometimes that’s
+all you need to see, and it will let you identify the problem immediately.
+But sometimes, it’s not quite self-evident.
+2. The next thing to double-check is: which test is failing?
+3. Then we look for the place in our test code that kicked off the failure.
+We work our way down from the top of the traceback, looking for the
+filename of the tests file, to check which test function, and what line of
+code, the failure is coming from.
+3. In Python 3.11 and later, you can also look out for the string of carets,
+which try to tell you exactly where the exception came from.
+4.  we look further down for any of our own application code which was involved with the problem.
+
+## urls.py
+* Django uses a file called urls.py to map URLs to view functions. This mapping is also called routing. There is a main urls.py for the whole site in the project folder.
+* Django strips the leading slash from all urls, so "/url/path/to" becomes "url/path/to" and the base URL is just the empty string, ''.
