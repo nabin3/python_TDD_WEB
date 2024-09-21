@@ -3,7 +3,7 @@
 ## First Django app, and our first unit test:
 Django encourages us to structure our code into apps, the point is that one project can have many apps, we can use third-party apps developed by other people or reuse our own apps from different project. 
 
-* To start an app we dol like this ```python manage.py startapp app_name```.   This will create a folder which name will be given app name. ```python manage.py startapp lists``` have created an folder name lists.
+* To start an app we do like this ```python manage.py startapp app_name```.   This will create a folder which name will be given app name. ```python manage.py startapp lists``` have created an folder name lists.
 ```bash
 .
 ├── db.sqlite3
