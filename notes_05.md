@@ -16,3 +16,15 @@ Django will substitute the template tag during rendering with an
 # Passing python variables to be rendered in the templates:
 The notion is {{ ... }}, which displays the object as a string.
 
+# Django ORM:
+An Object-Relational Mapper (ORM) is a layer of abstraction for data stored in a database with tables, rows, and columns. It lets us work with databases using familiar object-oriented metaphors which work well with code. Classes map to database tables, attributes map to columns, and an individual instance of the class represents a row of data in the database.
+    In Django, the ORM’s job is to model and read and write from database tables, but there’s a second system that’s in charge,of actually creating the tables in the database called “migrations”. Its job is to let you to add, remove, and modify tables and columns,based on changes you make to your models.py files
+
+* To build first database migration we run ```python manage.py makemigrations```
+* Classes that inherit from models.Model map to tables in the database. By default they get an auto-generated id attribute, which will be a primary key column in the database, but you have to define any other columns and attributes you want explicitly.
+Example of defining fields
+```bash
+class Item(models.Model):
+    text = models.TextField()   # There is also Integer, Char and DateField and so on
+```
+* When ever we add a new field we need to run ```python manage.py makemigrations```. Running this will gives us option to choose default values for existing rows.
