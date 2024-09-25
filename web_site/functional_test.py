@@ -11,6 +11,12 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element(By.ID, 'id_list_table')
+        rows = table.find_elements(By.TAG_NAME, 'tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
+
     def test_can_start_a_todo_list(self):
         # Edith has heared about this cool new online to-do app
         # She goes to check out it's homepage.
@@ -26,23 +32,25 @@ class NewVisitorTest(unittest.TestCase):
         self.assertEqual(inputbox.get_attribute('placeholder'), 'Enter a to-do item')
 
         # She types "Buy peacock feathers" into a text box
-        inputbox.send_keys('Buy peacock feathers')
+        inputbox.send_keys('1: Buy peacock feathers')
         # (Edith hobby is tying fly-fishing lures)
 
         # When she hits enter, the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in to do list
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-
-        table = self.browser.find_element(By.ID, 'id_list_table')
-        rows = table.find_elements(By.TAG_NAME, 'tr')
-        self.assertTrue('1. Buy peacock feathers', [row.text for row in rows])
+        self.check_for_row_in_list_table('1: Buy peacock feathers')
 
         # There is still a text box inviting to add another item
         # She enters "Use peacock feather to make a fly"(Edith is very methodical)
-        self.fail('Fininsh the test!')
+        inputbox = self.browser.find_element(By.ID, 'id_new_item')
+        inputbox.send_keys('2: Use peacock feathers to make a fly')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         # The page updates again, and now shows both item on her list
+        self.check_for_row_in_list_table('1: Buy peacock feathers')
+        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
         # Satisfied, she goes back to sleep
 
