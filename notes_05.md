@@ -28,3 +28,10 @@ class Item(models.Model):
     text = models.TextField()   # There is also Integer, Char and DateField and so on
 ```
 * When ever we add a new field we need to run ```python manage.py makemigrations```. Running this will gives us option to choose default values for existing rows.
+
+# Django template for iteration:
+```bash
+{% for ... in ... %}
+    ...
+{% endfor %}
+```
