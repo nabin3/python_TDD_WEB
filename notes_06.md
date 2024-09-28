@@ -1,0 +1,2 @@
+* Django's ```LiveServerTestCase``` class creates a test database and startup a development server for the functional tests to run against. 
+* ```git mv``` is used to keep tarck of the fact that  the file which is moved by this command should have single history.

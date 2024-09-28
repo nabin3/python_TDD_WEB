@@ -29,9 +29,15 @@ class Item(models.Model):
 ```
 * When ever we add a new field we need to run ```python manage.py makemigrations```. Running this will gives us option to choose default values for existing rows.
 
+* One thing to note that ```python manage.py makemigrations``` only creates migration files with the rules/changes which will be apply to create real database but it doe not create any real database. When we run ```python manage.py test``` dhango itself create test database and destroys it after finishing the test. 
+* To create real database we need to run ```python manage.py migrate```.
+* If want to delete this real database run ```rm db.sqlite3```.
+* If want to migrate existing real database without any conformation(human interaction) use ```python manage.py migrate --noinput```.
+
 # Django template for iteration:
 ```bash
 {% for ... in ... %}
+    {{ forloop.counter }}   # It gives number of how many times for loop executed.
     ...
 {% endfor %}
 ```
