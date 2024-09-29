@@ -28,4 +28,19 @@ re-usable part to refactor out.
 A place to write down things that occur to us as we’re coding,
 so that we can finish up what we’re doing and come back to them later.
 
+## If functional_test behave wired:
+If something strange is going on with your FTs,it’s always worth trying to upgrade Selenium.
+### Story:
+I found the FTs hung when I tried to run them. It turns out that Firefox had auto-updated itself overnight,
+and my versions of Selenium and Geckodriver needed upgrading too. A quick visit to the geckodriver releases page
+confirmed there was a new version out.So a few downloads and upgrades were in order:
+* A quick pip install --upgrade selenium first.
+* Then a quick download of the new geckodriver.
+* I saved a backup copy of the old one somewhere, and put the new one in its place somewhere on the PATH.
+* And a quick check with geckodriver --version confirms the new one was ready to go.
+The FTs were then back to running the way I expected them to.
+
+
+
+
 
