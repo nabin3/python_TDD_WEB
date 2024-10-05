@@ -40,6 +40,9 @@ confirmed there was a new version out.So a few downloads and upgrades were in or
 * And a quick check with geckodriver --version confirms the new one was ready to go.
 The FTs were then back to running the way I expected them to.
 
+## traling slash(/):
+The convention I’m using is that URLs without a trailing slash are “action” URLs which modify the database.
+
 
 
 
